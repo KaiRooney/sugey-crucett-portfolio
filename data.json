@@ -1,0 +1,239 @@
+{
+  "profile": {
+    "name": "Sugey Crucett",
+    "initials": "SC",
+    "location": "Lawrence, MA",
+    "phone": "978-305-5071",
+    "email": "sugeycrucett@live.com",
+    "heroImage": "assets/sugey-crucett.jpg",
+    "resumeUrl": "assets/sugey-crucett-resume.docx"
+  },
+  "languages": {
+    "en": {
+      "name": "English",
+      "shortName": "EN"
+    },
+    "es": {
+      "name": "Espanol",
+      "shortName": "ES"
+    }
+  },
+  "content": {
+    "en": {
+      "title": "PCM Skills Trainer Portfolio",
+      "metaDescription": "Professional portfolio for Sugey Crucett, bilingual PCM Skills Trainer candidate with PCA, healthcare, documentation, and compliance experience.",
+      "navigation": [
+        { "label": "Experience", "href": "#work" },
+        { "label": "Skills", "href": "#skills" },
+        { "label": "About", "href": "#about" },
+        { "label": "Contact", "href": "#contact" }
+      ],
+      "hero": {
+        "eyebrow": "PCM Skills Trainer portfolio",
+        "summary": "Bilingual English and Spanish healthcare professional with hands-on PCA Program experience, strong documentation habits, and a practical commitment to consumer advocacy.",
+        "primaryAction": "View Experience",
+        "contactAction": "Contact",
+        "resumeAction": "Download Resume"
+      },
+      "metrics": [
+        { "value": "2", "label": "Fluent languages" },
+        { "value": "2023", "label": "PCA program experience" },
+        { "value": "7+", "label": "Years regulated documentation" }
+      ],
+      "experienceSection": {
+        "eyebrow": "Professional experience",
+        "title": "Healthcare support, compliance, and training readiness."
+      },
+      "experience": [
+        {
+          "organization": "Tempus Unlimited",
+          "dates": "2023 - Present",
+          "role": "Personal Care Assistant",
+          "image": "https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&w=900&q=80",
+          "imageAlt": "Healthcare professional supporting a patient",
+          "description": "Provides patient-centered support through the MassHealth PCA Program, assisting with ADLs, care plans, EVV documentation, service concerns, and consumer rights."
+        },
+        {
+          "organization": "Techprint Inc.",
+          "dates": "2018 - Present",
+          "role": "Medical Device Assembler",
+          "image": "https://images.unsplash.com/photo-1581093588401-fbb62a02f120?auto=format&fit=crop&w=900&q=80",
+          "imageAlt": "Quality control work in a technical environment",
+          "description": "Maintains accurate quality records, follows ISO standards and SOPs, collaborates across teams, and applies detailed procedural knowledge in a regulated medical environment."
+        },
+        {
+          "organization": "Parlex Corporation",
+          "dates": "2010 - 2017",
+          "role": "Medical Component Assembler",
+          "image": "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=900&q=80",
+          "imageAlt": "Team training and collaboration",
+          "description": "Assembled precision medical components, performed inspections, maintained traceable documentation, and mentored new hires in a cleanroom manufacturing setting."
+        }
+      ],
+      "skillsSection": {
+        "eyebrow": "Core competencies",
+        "title": "Prepared for consumer support, case documentation, and program guidance."
+      },
+      "skills": [
+        "PCA Program & MassHealth Knowledge",
+        "Consumer Eligibility Assessment",
+        "Skills Training & Orientation",
+        "Case Documentation",
+        "Database & Records Management",
+        "Employer/Employee Coaching",
+        "Peer Support & Advocacy",
+        "Information & Referral Services",
+        "Microsoft Office / Excel",
+        "Patient Care & ADL Support",
+        "Quality Compliance & SOPs",
+        "English / Spanish Fluency"
+      ],
+      "about": {
+        "eyebrow": "About",
+        "title": "A practical advocate for consumers and families.",
+        "body": "Sugey brings direct experience inside the Tempus Unlimited and MassHealth PCA ecosystem, paired with years of regulated healthcare manufacturing documentation. She understands consumer needs, employer/employee dynamics, service agreements, and the importance of clear, patient communication with individuals with disabilities, families, surrogates, and agency staff."
+      },
+      "credentials": {
+        "eyebrow": "Certifications",
+        "title": "Healthcare training and credentials.",
+        "items": [
+          {
+            "title": "Current & Completed",
+            "description": "CPR & AED Certified, BLS Basic Life Support, First Aid Certified."
+          },
+          {
+            "title": "In Progress",
+            "description": "CNA Certification Program, International Health Training Center in Lawrence, MA."
+          },
+          {
+            "title": "Education",
+            "description": "Nursing Program, Gateway Community College in New Haven, CT, 2006 - 2008."
+          }
+        ]
+      },
+      "contact": {
+        "eyebrow": "Contact",
+        "title": "Available for PCM Skills Trainer opportunities.",
+        "directLabel": "Direct contact",
+        "formTitle": "Send a message",
+        "nameLabel": "Your name",
+        "emailLabel": "Your email",
+        "messageLabel": "Message",
+        "submitLabel": "Open Email Draft",
+        "subject": "Portfolio inquiry for Sugey Crucett",
+        "defaultMessage": "Hello Sugey, I would like to connect about a PCM Skills Trainer opportunity."
+      },
+      "footer": {
+        "text": "Professional portfolio."
+      }
+    },
+    "es": {
+      "title": "Portafolio de Entrenadora de Habilidades PCM",
+      "metaDescription": "Portafolio profesional de Sugey Crucett, candidata bilingue para PCM Skills Trainer con experiencia en PCA, salud, documentacion y cumplimiento.",
+      "navigation": [
+        { "label": "Experiencia", "href": "#work" },
+        { "label": "Habilidades", "href": "#skills" },
+        { "label": "Sobre mi", "href": "#about" },
+        { "label": "Contacto", "href": "#contact" }
+      ],
+      "hero": {
+        "eyebrow": "Portafolio PCM Skills Trainer",
+        "summary": "Profesional bilingue en ingles y espanol con experiencia directa en el Programa PCA, habitos solidos de documentacion y compromiso practico con la defensa del consumidor.",
+        "primaryAction": "Ver Experiencia",
+        "contactAction": "Contacto",
+        "resumeAction": "Descargar Resume"
+      },
+      "metrics": [
+        { "value": "2", "label": "Idiomas fluidos" },
+        { "value": "2023", "label": "Experiencia en programa PCA" },
+        { "value": "7+", "label": "Anos en documentacion regulada" }
+      ],
+      "experienceSection": {
+        "eyebrow": "Experiencia profesional",
+        "title": "Apoyo en salud, cumplimiento y preparacion para entrenamiento."
+      },
+      "experience": [
+        {
+          "organization": "Tempus Unlimited",
+          "dates": "2023 - Presente",
+          "role": "Asistente de Cuidado Personal",
+          "image": "https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&w=900&q=80",
+          "imageAlt": "Profesional de salud apoyando a un paciente",
+          "description": "Brinda apoyo centrado en el paciente a traves del Programa PCA de MassHealth, asistiendo con ADLs, planes de cuidado, documentacion EVV, inquietudes de servicio y derechos del consumidor."
+        },
+        {
+          "organization": "Techprint Inc.",
+          "dates": "2018 - Presente",
+          "role": "Ensambladora de Dispositivos Medicos",
+          "image": "https://images.unsplash.com/photo-1581093588401-fbb62a02f120?auto=format&fit=crop&w=900&q=80",
+          "imageAlt": "Control de calidad en un ambiente tecnico",
+          "description": "Mantiene registros precisos de calidad, sigue normas ISO y SOPs, colabora entre equipos y aplica conocimiento de procedimientos detallados en un ambiente medico regulado."
+        },
+        {
+          "organization": "Parlex Corporation",
+          "dates": "2010 - 2017",
+          "role": "Ensambladora de Componentes Medicos",
+          "image": "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=900&q=80",
+          "imageAlt": "Entrenamiento y colaboracion en equipo",
+          "description": "Ensamblo componentes medicos de precision, realizo inspecciones, mantuvo documentacion trazable y oriento a nuevos empleados en un ambiente de manufactura cleanroom."
+        }
+      ],
+      "skillsSection": {
+        "eyebrow": "Competencias clave",
+        "title": "Preparada para apoyo al consumidor, documentacion de casos y orientacion de programa."
+      },
+      "skills": [
+        "Conocimiento del Programa PCA y MassHealth",
+        "Evaluacion de elegibilidad del consumidor",
+        "Entrenamiento y orientacion de habilidades",
+        "Documentacion de casos",
+        "Manejo de bases de datos y records",
+        "Coaching para empleador/empleado",
+        "Apoyo y defensa del consumidor",
+        "Informacion y referidos",
+        "Microsoft Office / Excel",
+        "Apoyo al paciente y ADLs",
+        "Cumplimiento de calidad y SOPs",
+        "Fluidez en ingles y espanol"
+      ],
+      "about": {
+        "eyebrow": "Sobre mi",
+        "title": "Una defensora practica para consumidores y familias.",
+        "body": "Sugey aporta experiencia directa dentro del ecosistema Tempus Unlimited y MassHealth PCA, junto con anos de documentacion regulada en manufactura de salud. Comprende las necesidades del consumidor, la dinamica empleador/empleado, acuerdos de servicio y la importancia de una comunicacion clara con personas con discapacidades, familias, representantes y personal de agencias."
+      },
+      "credentials": {
+        "eyebrow": "Certificaciones",
+        "title": "Entrenamiento y credenciales de salud.",
+        "items": [
+          {
+            "title": "Actuales y completadas",
+            "description": "Certificada en CPR & AED, BLS Basic Life Support y First Aid."
+          },
+          {
+            "title": "En progreso",
+            "description": "Programa de Certificacion CNA, International Health Training Center en Lawrence, MA."
+          },
+          {
+            "title": "Educacion",
+            "description": "Programa de Enfermeria, Gateway Community College en New Haven, CT, 2006 - 2008."
+          }
+        ]
+      },
+      "contact": {
+        "eyebrow": "Contacto",
+        "title": "Disponible para oportunidades de PCM Skills Trainer.",
+        "directLabel": "Contacto directo",
+        "formTitle": "Enviar mensaje",
+        "nameLabel": "Su nombre",
+        "emailLabel": "Su email",
+        "messageLabel": "Mensaje",
+        "submitLabel": "Abrir Email",
+        "subject": "Consulta de portafolio para Sugey Crucett",
+        "defaultMessage": "Hola Sugey, me gustaria conectar sobre una oportunidad de PCM Skills Trainer."
+      },
+      "footer": {
+        "text": "Portafolio profesional."
+      }
+    }
+  }
+}

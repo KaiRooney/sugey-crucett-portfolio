@@ -29,11 +29,17 @@
         { "label": "Contact", "href": "#contact" }
       ],
       "hero": {
-        "eyebrow": "PCM Skills Trainer portfolio",
+        "eyebrow": "Sugey Crucett — PCM Skills Trainer portfolio",
+        "title": [
+          { "text": "Care" },
+          { "text": "into", "italic": true },
+          { "text": "Confidence" }
+        ],
         "summary": "Bilingual English and Spanish healthcare professional with hands-on PCA Program experience, strong documentation habits, and a practical commitment to consumer advocacy.",
         "primaryAction": "View Experience",
         "contactAction": "Contact",
-        "resumeAction": "Download Resume"
+        "resumeAction": "Download Resume",
+        "descendLabel": "Explore"
       },
       "metrics": [
         { "value": "2", "label": "Fluent languages" },
@@ -124,7 +130,8 @@
         "defaultMessage": "Hello Sugey, I would like to connect about a PCM Skills Trainer opportunity."
       },
       "footer": {
-        "text": "Professional portfolio."
+        "text": "Professional portfolio.",
+        "backToTop": "Back to top"
       }
     },
     "es": {
@@ -137,11 +144,17 @@
         { "label": "Contacto", "href": "#contact" }
       ],
       "hero": {
-        "eyebrow": "Portafolio PCM Skills Trainer",
+        "eyebrow": "Sugey Crucett — Portafolio PCM Skills Trainer",
+        "title": [
+          { "text": "Cuidado" },
+          { "text": "hecho", "italic": true },
+          { "text": "Confianza" }
+        ],
         "summary": "Profesional bilingue en ingles y espanol con experiencia directa en el Programa PCA, habitos solidos de documentacion y compromiso practico con la defensa del consumidor.",
         "primaryAction": "Ver Experiencia",
         "contactAction": "Contacto",
-        "resumeAction": "Descargar Resume"
+        "resumeAction": "Descargar Resume",
+        "descendLabel": "Explorar"
       },
       "metrics": [
         { "value": "2", "label": "Idiomas fluidos" },
@@ -232,7 +245,8 @@
         "defaultMessage": "Hola Sugey, me gustaria conectar sobre una oportunidad de PCM Skills Trainer."
       },
       "footer": {
-        "text": "Portafolio profesional."
+        "text": "Portafolio profesional.",
+        "backToTop": "Volver arriba"
       }
     }
   }

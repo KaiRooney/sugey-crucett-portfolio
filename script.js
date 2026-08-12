@@ -4,6 +4,7 @@ const contactForm = document.querySelector("[data-contact-form]");
 
 let portfolioData;
 let currentLanguage = localStorage.getItem("portfolioLanguage") || "en";
+let revealObserver;
 
 const setText = (selector, value) => {
   document.querySelectorAll(selector).forEach((element) => {
@@ -34,26 +35,47 @@ const setResumeLinks = (resumeUrl) => {
   });
 };
 
-const renderNavigation = (items = []) => {
-  const navigation = document.querySelector('[data-list="navigation"]');
-  navigation.replaceChildren();
+const renderHeroTitle = (segments = []) => {
+  const title = document.querySelector('[data-field="heroTitle"]');
+  if (!title) {
+    return;
+  }
+  title.replaceChildren();
+  segments.forEach((segment) => {
+    const line = createElement("span", "line");
+    if (segment.italic) {
+      line.append(createElement("em", "", segment.text));
+    } else {
+      line.textContent = segment.text;
+    }
+    title.append(line);
+  });
+};
 
-  items.forEach((item) => {
+const renderNavigation = (items = []) => {
+  const left = document.querySelector('[data-nav="left"]');
+  const right = document.querySelector('[data-nav="right"]');
+  left.replaceChildren();
+  right.replaceChildren();
+
+  const half = Math.ceil(items.length / 2);
+  items.forEach((item, index) => {
     const link = createElement("a", "", item.label);
     link.href = item.href;
-    navigation.append(link);
+    (index < half ? left : right).append(link);
   });
 };
 
 const renderMetrics = (items = []) => {
   const metrics = document.querySelector('[data-list="metrics"]');
+  const floats = ["float-a", "float-b", "float-c"];
   metrics.replaceChildren();
 
-  items.forEach((item) => {
-    const metric = createElement("div", "metric");
-    metric.append(createElement("strong", "", item.value));
-    metric.append(createElement("span", "", item.label));
-    metrics.append(metric);
+  items.forEach((item, index) => {
+    const card = createElement("div", `glass-card ${floats[index % floats.length]}`);
+    card.append(createElement("strong", "", item.value));
+    card.append(createElement("span", "", item.label));
+    metrics.append(card);
   });
 };
 
@@ -61,13 +83,19 @@ const renderExperience = (items = []) => {
   const grid = document.querySelector('[data-list="experience"]');
   grid.replaceChildren();
 
-  items.forEach((item) => {
-    const card = createElement("article", "project-card");
+  items.forEach((item, index) => {
+    const card = createElement("article", "project-card reveal");
+    card.style.setProperty("--d", String(index));
     const image = createElement("img");
     const body = createElement("div", "project-body");
 
     image.src = item.image;
     image.alt = item.imageAlt;
+    image.loading = "lazy";
+    image.addEventListener("error", () => {
+      image.remove();
+      card.classList.add("no-image");
+    });
     body.append(createElement("p", "project-tag", `${item.organization} | ${item.dates}`));
     body.append(createElement("h3", "", item.role));
     body.append(createElement("p", "", item.description));
@@ -80,8 +108,10 @@ const renderSkills = (items = []) => {
   const skills = document.querySelector('[data-list="skills"]');
   skills.replaceChildren();
 
-  items.forEach((item) => {
-    skills.append(createElement("span", "", item));
+  items.forEach((item, index) => {
+    const chip = createElement("span", "reveal", item);
+    chip.style.setProperty("--d", String(index % 6));
+    skills.append(chip);
   });
 };
 
@@ -89,8 +119,9 @@ const renderCredentials = (items = []) => {
   const credentials = document.querySelector('[data-list="credentials"]');
   credentials.replaceChildren();
 
-  items.forEach((item) => {
-    const credential = createElement("div");
+  items.forEach((item, index) => {
+    const credential = createElement("div", "reveal");
+    credential.style.setProperty("--d", String(index));
     credential.append(createElement("h3", "", item.title));
     credential.append(createElement("p", "", item.description));
     credentials.append(credential);
@@ -112,6 +143,33 @@ const renderLanguages = (languages = {}) => {
   });
 };
 
+const observeReveals = () => {
+  if (revealObserver) {
+    revealObserver.disconnect();
+  }
+
+  const reveals = document.querySelectorAll(".reveal");
+
+  if (!("IntersectionObserver" in window)) {
+    reveals.forEach((element) => element.classList.add("is-visible"));
+    return;
+  }
+
+  revealObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.12, rootMargin: "0px 0px -8% 0px" }
+  );
+
+  reveals.forEach((element) => revealObserver.observe(element));
+};
+
 const renderPortfolio = (data, language = "en") => {
   const { profile } = data;
   const content = data.content?.[language] || data.content?.en || data;
@@ -125,27 +183,29 @@ const renderPortfolio = (data, language = "en") => {
     .setAttribute("content", content.metaDescription);
 
   setText('[data-field="name"]', profile.name);
-  setText('[data-field="initials"]', profile.initials);
   setText('[data-field="heroEyebrow"]', content.hero.eyebrow);
   setText('[data-field="summary"]', content.hero.summary);
   setText('[data-field="primaryAction"]', content.hero.primaryAction);
-  setText('[data-field="contactAction"]', content.hero.contactAction);
   setText('[data-field="resumeAction"]', content.hero.resumeAction);
+  setText('[data-field="descendLabel"]', content.hero.descendLabel);
   setText('[data-field="email"]', profile.email);
   setText('[data-field="contactDetails"]', `${profile.location} | ${profile.phone}`);
   setText('[data-field="footerText"]', content.footer?.text || "Professional portfolio.");
+  setText('[data-field="backToTop"]', content.footer?.backToTop || "Back to top");
   setMailLinks(profile.email);
   setResumeLinks(profile.resumeUrl);
 
   document.querySelector('[data-field="heroImage"]').src = profile.heroImage;
 
+  renderHeroTitle(content.hero.title);
+
+  setText('[data-field="aboutEyebrow"]', content.about.eyebrow);
+  setText('[data-field="aboutTitle"]', content.about.title);
+  setText('[data-field="aboutBody"]', content.about.body);
   setText('[data-field="experienceEyebrow"]', content.experienceSection.eyebrow);
   setText('[data-field="experienceTitle"]', content.experienceSection.title);
   setText('[data-field="skillsEyebrow"]', content.skillsSection.eyebrow);
   setText('[data-field="skillsTitle"]', content.skillsSection.title);
-  setText('[data-field="aboutEyebrow"]', content.about.eyebrow);
-  setText('[data-field="aboutTitle"]', content.about.title);
-  setText('[data-field="aboutBody"]', content.about.body);
   setText('[data-field="credentialsEyebrow"]', content.credentials.eyebrow);
   setText('[data-field="credentialsTitle"]', content.credentials.title);
   setText('[data-field="contactEyebrow"]', content.contact.eyebrow);
@@ -168,6 +228,24 @@ const renderPortfolio = (data, language = "en") => {
   renderExperience(content.experience);
   renderSkills(content.skills);
   renderCredentials(content.credentials.items);
+  observeReveals();
+};
+
+const startIntro = () => {
+  const heroImage = document.querySelector('[data-field="heroImage"]');
+
+  const begin = () => {
+    requestAnimationFrame(() => {
+      document.body.classList.add("is-loaded");
+    });
+  };
+
+  if (heroImage && !heroImage.complete) {
+    heroImage.addEventListener("load", begin, { once: true });
+    setTimeout(begin, 1600);
+  } else {
+    setTimeout(begin, 250);
+  }
 };
 
 const loadPortfolio = async () => {
@@ -183,11 +261,14 @@ const loadPortfolio = async () => {
     renderPortfolio(portfolioData, currentLanguage);
   } catch (error) {
     console.warn(error);
+    observeReveals();
+  } finally {
+    startIntro();
   }
 };
 
 const syncHeader = () => {
-  header.classList.toggle("is-scrolled", window.scrollY > 20);
+  header.classList.toggle("is-scrolled", window.scrollY > 24);
 };
 
 year.textContent = new Date().getFullYear();

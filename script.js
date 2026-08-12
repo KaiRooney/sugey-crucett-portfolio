@@ -6,6 +6,9 @@ let portfolioData;
 let currentLanguage = localStorage.getItem("portfolioLanguage") || "en";
 let revealObserver;
 
+// stage the cinematic intro: hide the portrait until the text sequence lands
+document.body.classList.add("has-intro");
+
 const setText = (selector, value) => {
   document.querySelectorAll(selector).forEach((element) => {
     element.textContent = value;
@@ -233,10 +236,20 @@ const renderPortfolio = (data, language = "en") => {
 
 const startIntro = () => {
   const heroImage = document.querySelector('[data-field="heroImage"]');
+  let started = false;
 
   const begin = () => {
+    if (started) {
+      return;
+    }
+    started = true;
     requestAnimationFrame(() => {
+      // stage 1: text sequence rises out of the void
       document.body.classList.add("is-loaded");
+      // stage 2: once the words have landed, the portrait opens like a portal
+      setTimeout(() => {
+        document.body.classList.add("hero-revealed");
+      }, 2100);
     });
   };
 

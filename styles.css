@@ -228,16 +228,29 @@ a {
   height: 100%;
   object-fit: cover;
   object-position: 72% 28%;
-  transform: scale(1.18);
+  transform: scale(1.26);
   filter: saturate(0.92) brightness(0.9);
 }
 
-body.is-loaded .hero-media img {
+/* stage 1 — the void: portrait hidden while the text sequence plays */
+body.has-intro .hero-media img {
+  opacity: 0;
+  clip-path: circle(0% at 70% 32%);
+  filter: blur(28px) saturate(0.92) brightness(0.9);
+}
+
+/* stage 2 — iris reveal: the face opens through an expanding portal */
+body.hero-revealed .hero-media img {
+  opacity: 1;
+  clip-path: circle(145% at 70% 32%);
+  filter: blur(0) saturate(0.92) brightness(0.9);
+  transition: clip-path 2.8s var(--ease-out), opacity 1.6s ease,
+    filter 2.4s var(--ease-out);
   animation: hero-drift 26s var(--ease-out) forwards;
 }
 
 @keyframes hero-drift {
-  from { transform: scale(1.18) translateY(0); }
+  from { transform: scale(1.26) translateY(0); }
   to { transform: scale(1.04) translateY(-1.5%); }
 }
 
@@ -253,6 +266,13 @@ body.is-loaded .hero-media img {
     radial-gradient(560px 380px at 78% 28%, rgba(214, 120, 152, 0.14), transparent 60%);
   mix-blend-mode: screen;
   animation: glow-breathe 9s ease-in-out infinite;
+}
+
+/* during the void stage, a faint ember marks where the portal will open */
+body.has-intro:not(.hero-revealed) .hero-glow {
+  background:
+    radial-gradient(720px 420px at 24% 68%, rgba(146, 108, 232, 0.28), transparent 65%),
+    radial-gradient(420px 320px at 70% 32%, rgba(201, 178, 255, 0.22), transparent 58%);
 }
 
 @keyframes glow-breathe {
@@ -907,9 +927,14 @@ h3 {
     animation: none !important;
   }
 
-  body.is-loaded .hero-media img {
+  body.has-intro .hero-media img,
+  body.hero-revealed .hero-media img {
+    opacity: 1;
+    clip-path: none;
     animation: none;
+    transition: none;
     transform: scale(1.04);
+    filter: saturate(0.92) brightness(0.9);
   }
 
   .intro,

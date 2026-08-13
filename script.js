@@ -198,13 +198,13 @@ const renderPortfolio = (data, language = "en") => {
   setMailLinks(profile.email);
   setResumeLinks(profile.resumeUrl);
 
-  const voidImg = document.querySelector('[data-field="heroVoidImage"]');
-  const faceImg = document.querySelector('[data-field="heroFaceImage"]');
-  if (voidImg && profile.heroVoidImage) {
-    voidImg.src = profile.heroVoidImage;
+  const portraitImg = document.querySelector('[data-field="heroImage"]');
+  const sceneImg = document.querySelector('[data-field="heroSceneImage"]');
+  if (portraitImg && profile.heroImage) {
+    portraitImg.src = profile.heroImage;
   }
-  if (faceImg && profile.heroFaceImage) {
-    faceImg.src = profile.heroFaceImage;
+  if (sceneImg && profile.heroSceneImage) {
+    sceneImg.src = profile.heroSceneImage;
   }
 
   renderHeroTitle(content.hero.title);
@@ -242,7 +242,7 @@ const renderPortfolio = (data, language = "en") => {
 };
 
 const startIntro = () => {
-  const heroImage = document.querySelector('[data-field="heroVoidImage"]');
+  const heroImage = document.querySelector('[data-field="heroSceneImage"]');
   let started = false;
 
   const begin = () => {
@@ -253,10 +253,11 @@ const startIntro = () => {
     requestAnimationFrame(() => {
       // stage 1: text sequence rises out of the void
       document.body.classList.add("is-loaded");
-      // stage 2: once the words have landed, the portrait opens like a portal
+      // stage 2: once the words have landed, the camera flies through the
+      // portal and the portrait is revealed on the other side
       setTimeout(() => {
         document.body.classList.add("hero-revealed");
-      }, 2100);
+      }, 2400);
     });
   };
 

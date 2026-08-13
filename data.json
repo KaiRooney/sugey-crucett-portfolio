@@ -6,8 +6,7 @@
     "phone": "978-305-5071",
     "email": "sugeycrucett@live.com",
     "heroImage": "assets/sugey-crucett.jpg",
-    "heroVoidImage": "assets/hero-cave-void.jpg",
-    "heroFaceImage": "assets/hero-cave-face.jpg",
+    "heroSceneImage": "assets/hero-cave-portal.webp",
     "resumeUrl": "assets/sugey-crucett-resume.docx"
   },
   "languages": {

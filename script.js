@@ -257,7 +257,7 @@ const startIntro = () => {
       // portal and the portrait is revealed on the other side
       setTimeout(() => {
         document.body.classList.add("hero-revealed");
-      }, 2400);
+      }, 3400);
     });
   };
 

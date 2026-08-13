@@ -271,7 +271,7 @@ const startIntro = () => {
 
 const loadPortfolio = async () => {
   try {
-    const response = await fetch("data.json");
+    const response = await fetch("data.json?v=5");
     if (!response.ok) {
       throw new Error("Unable to load portfolio data.");
     }

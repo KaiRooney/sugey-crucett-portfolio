@@ -198,7 +198,14 @@ const renderPortfolio = (data, language = "en") => {
   setMailLinks(profile.email);
   setResumeLinks(profile.resumeUrl);
 
-  document.querySelector('[data-field="heroImage"]').src = profile.heroImage;
+  const voidImg = document.querySelector('[data-field="heroVoidImage"]');
+  const faceImg = document.querySelector('[data-field="heroFaceImage"]');
+  if (voidImg && profile.heroVoidImage) {
+    voidImg.src = profile.heroVoidImage;
+  }
+  if (faceImg && profile.heroFaceImage) {
+    faceImg.src = profile.heroFaceImage;
+  }
 
   renderHeroTitle(content.hero.title);
 
@@ -235,7 +242,7 @@ const renderPortfolio = (data, language = "en") => {
 };
 
 const startIntro = () => {
-  const heroImage = document.querySelector('[data-field="heroImage"]');
+  const heroImage = document.querySelector('[data-field="heroVoidImage"]');
   let started = false;
 
   const begin = () => {
